@@ -222,6 +222,11 @@ with gr.Blocks() as demo:
 
 demo.launch(share=True, debug=True)
 ```
+---
+
+
+https://github.com/user-attachments/assets/8bf758d6-a6f7-4aa3-8641-e2c43969a85d
+
 
 ---
 
