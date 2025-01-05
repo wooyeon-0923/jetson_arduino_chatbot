@@ -269,7 +269,7 @@ demo.launch(share=True, debug=True)
 ---
 ## 💻 Practical Results
 
-<img src="https://github.com/user-attachments/assets/8bf758d6-a6f7-4aa3-8641-e2c43969a85d" width="300"/>
+https://github.com/user-attachments/assets/8bf758d6-a6f7-4aa3-8641-e2c43969a85d
 
 ---
 
@@ -317,4 +317,4 @@ demo.launch(share=True, debug=True)
 ## review
 
 **Cho Woo-yeon**:  
-“As someone deeply involved in orchestrating the end-to-end workflow—from sensor data collection and processing to the final chatbot interface—I gained invaluable insights into comprehensive solution development. This project let me tackle complex challenges such as filtering noisy data, integrating advanced AI models, and ensuring user-friendly communication. I’m especially proud that our platform can monitor air quality while also suggesting practical measures for improving indoor environments. Overall, it’s been a transformative experience, and I’m eager to continue innovating in the sphere of smart, data-driven solutions.”
+“As someone deeply involved in orchestrating the end-to-end workflow—from sensor data collection and processing to the final chatbot interface. I gained invaluable insights into comprehensive solution development. This project let me tackle complex challenges such as filtering noisy data, integrating advanced AI models, and ensuring user-friendly communication. I’m especially proud that our platform can monitor air quality while also suggesting practical measures for improving indoor environments. Overall, it’s been a transformative experience, and I’m eager to continue innovating in the sphere of smart, data-driven solutions.”
