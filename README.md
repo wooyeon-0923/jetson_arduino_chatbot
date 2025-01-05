@@ -46,13 +46,13 @@ Additionally, the EPA (United States Environmental Protection Agency) states tha
 
 ### 🖥️ Hardware Setup
 - **Grove Dust Sensor**  
-  ![image](https://github.com/user-attachments/assets/e07fef8a-9ae9-4054-b620-de77c6de32a2)
+  ![image](https://github.com/user-attachments/assets/eb91cb1b-1dd8-4e63-b716-f5217ab44a32)
 
 - **CM1106 CO2 Sensor**  
-  ![image](https://github.com/user-attachments/assets/348f7ae4-43dd-4d50-9bb7-db97e3eee484)
+  ![image](https://github.com/user-attachments/assets/a93a7a01-6cdf-440f-ad10-5900f2303ccf)
 
 - **Jetson Nano**  
-  ![image](https://github.com/user-attachments/assets/d612d8f8-2625-46f2-b22e-b42e6fb0d7f2)
+  ![image](https://github.com/user-attachments/assets/7edb789c-5baa-40a0-8204-94ecf3373c9c)
 
 - **Arduino**  
   ![image](https://github.com/user-attachments/assets/0a5712f2-cf6c-4947-a56b-d99ff239aee5)
@@ -301,3 +301,13 @@ https://github.com/user-attachments/assets/8bf758d6-a6f7-4aa3-8641-e2c43969a85d
 
 4. **Applying Machine Learning Techniques**  
    - Build an algorithm that predicts future concentrations based on collected data for proactive measures.
+---
+
+## 📢 **Contributors**
+
+- 송현곤  
+- 곽원준  
+- 김강인  
+- 조우연  
+
+---
