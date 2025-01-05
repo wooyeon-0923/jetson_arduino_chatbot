@@ -1,89 +1,122 @@
-'# jetson_arduino_chatbot
+# jetson_arduino_chatbot
 
-# 💨 공기질 측정 및 챗봇 프로젝트
+# 💨 Air Quality Measurement and Chatbot Project
 
-## 📖 프로젝트 개요
-이 프로젝트는 **Jetson Nano**와 **PM10 API**를 활용하여 실시간으로 미세먼지 농도를 측정하고, 챗봇 인터페이스를 통해 사용자가 공기질 상태를 쉽게 확인할 수 있도록 합니다.  
-Gradio UI와 OpenAI GPT-4를 사용하여 데이터 기반 조언을 제공합니다.
+## 📖 Project Overview
+This project utilizes the **Jetson Nano** and **PM10 API** to measure fine dust concentrations in real time and allows users to easily check air quality status via a chatbot interface.  
+By incorporating Gradio UI and OpenAI GPT-4, we provide data-driven suggestions and advice.
+
+---
+## Air Pollution Standards in Korean Schools (School Health Act)
+
+For **Particulate Matter (PM10)**, the standard is **75 μg/m³ or lower** in classrooms and cafeterias, and **150 μg/m³ or lower** in gyms and auditoriums.  
+For **Fine Particulate Matter (PM2.5)**, it is **35 μg/m³ or lower** in classrooms and cafeterias.  
+For **Carbon Dioxide (CO₂)**, it is **1,000 ppm or lower** in classrooms and cafeterias; for mechanical ventilation systems, **1,500 ppm or lower** is allowed.
+
+Source: Standards for environmental hygiene in school facilities (Article 3, Paragraph 1, Item 1, 3, and 3-2 of the Enforcement Rules of the School Health Act)
+
+---
+## Impact of Air Pollutants on Learning Efficiency
+According to a referenced study, when indoor CO₂ concentration exceeds 1,000 ppm, concentration levels drop, and learning efficiency decreases. If it goes beyond 2,000 ppm, symptoms such as headaches and fatigue occur, having a negative effect on academic performance.  
+Additionally, the EPA (United States Environmental Protection Agency) states that poor air quality can reduce concentration, trigger or worsen respiratory diseases, and that students in schools with proper indoor air quality show a **5% increase** in test scores.
+
+---
+## Project Direction
+**Goal 1**: Measure harmful air pollutants in the classroom using Arduino and Jetson Nano  
+**Goal 2**: Create a chatbot that learns about air quality using Function Calling
+
+**Expected Outcome 1**: Improve learning efficiency by purifying the air when the air pollutant levels exceed acceptable standards  
+**Expected Outcome 2**: Provide solutions to tackle poor air quality through a chatbot interface
 
 ---
 
-## 🎯 주요 기능
-1. **센서 데이터와 API 데이터 비교**:
-   - Jetson Nano의 Dust Sensor와 PM10 API 데이터를 비교하여 환기 또는 공기청정기 사용 권장.
-2. **Gradio UI 기반 챗봇**:
-   - 사용자의 질문에 대해 실시간으로 데이터를 분석하고 적절한 답변 제공.
-3. **OpenAI GPT-4와 연동**:
-   - OpenAI GPT-4 API를 활용하여 복잡한 질문에도 답변 가능.
+## 🎯 Key Features
+1. **Comparison of Sensor Data and API Data**  
+   - Compare Jetson Nano’s Dust Sensor data with PM10 API data to recommend ventilation or use of air purifiers.
+
+2. **Gradio UI-Based Chatbot**  
+   - Analyze real-time data to provide appropriate responses to user queries.
+
+3. **Integration with OpenAI GPT-4**  
+   - Leverage the OpenAI GPT-4 API to handle complex questions.
 
 ---
 
-## ⚙️ 시스템 구성
+## ⚙️ System Configuration
 
-### 🖥️ 하드웨어 구성
-- **Grove Dust Sensor**
-- **CM1106 CO2 Sensor**
-- **Jetson Nano**
-- **Arduino**
+### 🖥️ Hardware Setup
+- **Grove Dust Sensor**  
+  ![image](https://github.com/user-attachments/assets/e07fef8a-9ae9-4054-b620-de77c6de32a2)
 
-### 🛠️ 소프트웨어 구성
+- **CM1106 CO2 Sensor**  
+  ![image](https://github.com/user-attachments/assets/348f7ae4-43dd-4d50-9bb7-db97e3eee484)
+
+- **Jetson Nano**  
+  ![image](https://github.com/user-attachments/assets/d612d8f8-2625-46f2-b22e-b42e6fb0d7f2)
+
+- **Arduino**  
+  ![image](https://github.com/user-attachments/assets/0a5712f2-cf6c-4947-a56b-d99ff239aee5)
+
+
+### 🛠️ Software Setup
 - **Python**
-  - 데이터 처리 및 머신러닝 모델 구축.
+  - Data processing and machine learning model building.
 - **Arduino**
-  - 센서 데이터 수집 및 시리얼 통신.
+  - Sensor data acquisition and serial communication.
 - **OpenAI API**
-  - Function Calling 기반의 챗봇 구현.
+  - Implementing a chatbot using Function Calling.
 
 ---
 
-## 🛠️ 프로젝트 구성
-### 1. 사용된 기술
-- **Jetson Nano**: 미세먼지 센서 데이터 처리.
-- **Dust Sensor**: 실내 미세먼지 농도를 µg/m³ 단위로 측정.
-- **PM10 API**: 외부 API를 통해 실시간 PM10 데이터를 가져옴.
-- **Python 라이브러리**:
+## 🛠️ Project Structure
+
+### 1. Technologies Used
+- **Jetson Nano**: Processes dust sensor data.  
+- **Dust Sensor**: Measures indoor particulate matter (PM) in µg/m³.  
+- **PM10 API**: Fetches real-time PM10 data from an external API.  
+- **Python Libraries**:
   - `gradio`, `pandas`, `openai`, `urllib`.
 
-### 2. 설치 요구사항
-- Python 3.8 이상
-- 인터넷 연결 (PM10 API 및 GPT-4 API 호출을 위해 필요)
+### 2. Requirements
+- Python 3.8 or higher
+- Internet connection (required for PM10 API and GPT-4 API calls)
 
 ---
 
-## 💾 설치 및 실행 방법
+## 💾 Installation & Execution
 
-1. **Python 환경 설정**:
-   아래 명령어로 필요한 라이브러리를 설치합니다.
+1. **Set up Python environment**  
+   Install the required libraries with the following command:
    ```bash
    pip install gradio pandas openai
    ```
 
-2. **OpenAI API 키 설정**:
-   `OPENAI_API_KEY` 환경 변수를 설정하거나 코드 내에서 직접 입력합니다.
+2. **Configure OpenAI API Key**  
+   Set the `OPENAI_API_KEY` environment variable or provide it directly in the code:
    ```python
    os.environ['OPENAI_API_KEY'] = 'YOUR_OPENAI_API_KEY'
    ```
 
-3. **Dust Sensor 데이터 준비**:
-   Jetson Nano에서 수집한 미세먼지 데이터는 CSV 형식으로 저장해야 합니다. 예:
+3. **Prepare Dust Sensor Data**  
+   The dust data collected by Jetson Nano should be stored in CSV format. For example:
    ```csv
    Timestamp,Dust Concentration (ug/m3)
    2024-12-01 10:00:00,35.2
    2024-12-01 11:00:00,40.5
    ```
 
-4. **코드 실행**:
-   아래 명령어로 스크립트를 실행합니다.
+4. **Run the Code**  
+   Execute the script with:
    ```bash
    python app.py
    ```
 
 ---
 
-## 💻 주요 코드 설명
+## 💻 Main Code Explanation
 
-### 1. PM10 API 데이터 호출
-PM10 API에서 데이터를 가져와 DataFrame으로 변환:
+### 1. Fetching PM10 API Data
+Retrieve data from the PM10 API and convert it into a DataFrame:
 ```python
 url = 'https://apihub.kma.go.kr/api/typ01/url/kma_pm10.php?tm1=202412112020&tm2=202412122020&authKey=8diTRQm4TEKYk0UJuOxCsg'
 with urlopen(url) as f:
@@ -103,15 +136,19 @@ df.drop(['STN', 'FLAG', ' ', 'MQC'], axis=1, inplace=True)
 last_API_value = float(df['PM10'].iloc[-1])
 ```
 
-### 2. Jetson Nano 센서 데이터 읽기
-CSV 파일에서 Dust Sensor의 최신 데이터를 읽어옴:
+The preprocessing of the code above (shown in images):  
+![image](https://github.com/user-attachments/assets/4c89c75b-9503-4b9b-af3e-43ec1735f4ca)  
+![image](https://github.com/user-attachments/assets/e9f1818f-cbe1-4d1e-8300-5ba421c75b68)
+
+### 2. Reading Jetson Nano Sensor Data
+Reads the latest Dust Sensor data from a CSV file:
 ```python
 df_dust = pd.read_csv('dust_sensor_data.csv')
 last_sensor_value = float(df_dust['Dust Concentration (ug/m3)'].iloc[-1])
 ```
 
-### 3. OpenAI API와 Gradio UI 연동
-Gradio UI를 통해 사용자가 질문을 입력하고, OpenAI API를 호출해 답변을 생성:
+### 3. Integrating OpenAI API and Gradio UI
+Through the Gradio UI, users can input questions; the OpenAI API is then called to generate answers:
 ```python
 with gr.Blocks() as demo:
     chatbot = gr.Chatbot(label="Chat Window")
@@ -121,8 +158,14 @@ with gr.Blocks() as demo:
 demo.launch(share=True, debug=True)
 ```
 
-### 4. 전체 코드
-아래는 전체 Python 코드입니다:
+### 4. Complete Code
+Below is the entire Python code.  
+At this point, we named the chatbot that suggests solutions based on the collected air quality—especially using Function Calling—**"청정이"** ("Cheongjeongi").  
+Main responses of Cheongjeongi:  
+- If the external fine dust value (API) is higher than the internal value, it recommends using an air purifier.  
+- If the external air quality is normal or lower, it recommends ventilating.  
+- If the internal fine dust is higher than the external, it recommends ventilation.  
+- If CO₂ levels are over 1000 ppm, it recommends ventilation.
 
 ```python
 import gradio as gr
@@ -222,30 +265,39 @@ with gr.Blocks() as demo:
 
 demo.launch(share=True, debug=True)
 ```
+
 ---
-## 💻 실습 결과
+## 💻 Practical Results
 
 https://github.com/user-attachments/assets/8bf758d6-a6f7-4aa3-8641-e2c43969a85d
 
+---
+
+## 📈 Expected Effects
+1. **Real-Time Sensor Monitoring**  
+   - Check particulate matter and CO₂ levels in real time.
+
+2. **Future Concentration Prediction**  
+   - Predict future concentration changes using machine learning models.
+
+3. **User-Friendly Interface**  
+   - Provide a conversational way of accessing air quality data and predictions via a chatbot.
 
 ---
 
-## 📈 기대 효과
-1. **실시간 센서 모니터링**:
-   - 미세먼지 및 CO2 농도 데이터를 실시간으로 확인.
-2. **미래 농도 예측**:
-   - 머신러닝 모델을 활용한 향후 농도 변화 예측.
-3. **사용자 친화적 인터페이스**:
-   - 챗봇을 통해 공기질 상태 및 예측 결과를 대화형으로 제공.
+## 🛠️ Future Improvements
+1. **Adding More Sensors**  
+   - 1. VOCs Sensor: C304  
+     2. Formaldehyde Sensor: C303  
+     3. Ozone Sensor: C401  
+   - Collect additional environmental data such as temperature and humidity.
 
----
+2. **STT/TTS Integration**  
+   - Interact with the chatbot via voice.
 
-## 🛠️ 향후 개선 방향
-1. **더 많은 센서 추가**:
-   - 온도, 습도 등 환경 데이터를 추가 수집.
-2. **STT/TTS 통합**:
-   - 음성으로 챗봇과 상호작용.
-3. **IoT 플랫폼 연동**:
-   - 클라우드 기반 데이터 저장 및 원격 모니터링.
+3. **Integration with IoT Platforms**  
+   - Cloud-based data storage and remote monitoring.  
+   - Automatically open windows remotely if pollutant levels exceed recommended thresholds.
 
----' 이건 내가 깃허브에 업로드한 내용이야. 이걸 다 영문으로 변환해줘. 최대한 야무지게!
+4. **Applying Machine Learning Techniques**  
+   - Build an algorithm that predicts future concentrations based on collected data for proactive measures.
