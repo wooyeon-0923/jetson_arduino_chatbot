@@ -1,4 +1,4 @@
-```
+```markdown
 # jetson_arduino_chatbot
 
 # 💨 Air Quality Measurement and Chatbot Project
@@ -46,18 +46,18 @@ Additionally, the EPA (United States Environmental Protection Agency) states tha
 ## ⚙️ System Configuration
 
 ### 🖥️ Hardware Setup
+
 - **Grove Dust Sensor**  
-  <img src="https://github.com/user-attachments/assets/eb91cb1b-1dd8-4e63-b716-f5217ab44a32" alt="Grove Dust Sensor" width="200"/>
+  <img src="https://github.com/user-attachments/assets/eb91cb1b-1dd8-4e63-b716-f5217ab44a32" width="300"/>
 
 - **CM1106 CO2 Sensor**  
-  <img src="https://github.com/user-attachments/assets/a93a7a01-6cdf-440f-ad10-5900f2303ccf" alt="CM1106 CO2 Sensor" width="200"/>
+  <img src="https://github.com/user-attachments/assets/a93a7a01-6cdf-440f-ad10-5900f2303ccf" width="300"/>
 
 - **Jetson Nano**  
-  <img src="https://github.com/user-attachments/assets/7edb789c-5baa-40a0-8204-94ecf3373c9c" alt="Jetson Nano" width="200"/>
+  <img src="https://github.com/user-attachments/assets/7edb789c-5baa-40a0-8204-94ecf3373c9c" width="300"/>
 
 - **Arduino**  
-  <img src="https://github.com/user-attachments/assets/0a5712f2-cf6c-4947-a56b-d99ff239aee5" alt="Arduino" width="200"/>
-
+  <img src="https://github.com/user-attachments/assets/0a5712f2-cf6c-4947-a56b-d99ff239aee5" width="300"/>
 
 ### 🛠️ Software Setup
 - **Python**
@@ -138,8 +138,8 @@ last_API_value = float(df['PM10'].iloc[-1])
 ```
 
 The preprocessing of the code above (shown in images):  
-<img src="https://github.com/user-attachments/assets/4c89c75b-9503-4b9b-af3e-43ec1735f4ca" alt="Preprocessing Step 1" width="300"/>  
-<img src="https://github.com/user-attachments/assets/e9f1818f-cbe1-4d1e-8300-5ba421c75b68" alt="Preprocessing Step 2" width="300"/>
+<img src="https://github.com/user-attachments/assets/4c89c75b-9503-4b9b-af3e-43ec1735f4ca" width="300"/>  
+<img src="https://github.com/user-attachments/assets/e9f1818f-cbe1-4d1e-8300-5ba421c75b68" width="300"/>
 
 ### 2. Reading Jetson Nano Sensor Data
 Reads the latest Dust Sensor data from a CSV file:
@@ -270,7 +270,7 @@ demo.launch(share=True, debug=True)
 ---
 ## 💻 Practical Results
 
-https://github.com/user-attachments/assets/8bf758d6-a6f7-4aa3-8641-e2c43969a85d
+<img src="https://github.com/user-attachments/assets/8bf758d6-a6f7-4aa3-8641-e2c43969a85d" width="300"/>
 
 ---
 
@@ -288,14 +288,9 @@ https://github.com/user-attachments/assets/8bf758d6-a6f7-4aa3-8641-e2c43969a85d
 
 ## 🛠️ Future Improvements
 1. **Adding More Sensors**  
-   - 1. VOCs Sensor: C304  
-     <img src="https://github.com/user-attachments/assets/335817fc-f9b6-4d26-b1f8-2881952a8221" alt="C304 Sensor" width="150"/>
-     
-     2. Formaldehyde Sensor: C303  
-     <img src="https://github.com/user-attachments/assets/21af43b0-975f-475a-8853-31ae398cbc13" alt="C303 Sensor" width="150"/>
-     
-     3. Ozone Sensor: C401  
-     <img src="https://github.com/user-attachments/assets/c550c479-00aa-47cf-bdff-7110d2fd7afc" alt="C401 Sensor" width="150"/>
+   - 1. VOCs Sensor: C304 <img src="https://github.com/user-attachments/assets/335817fc-f9b6-4d26-b1f8-2881952a8221" width="300"/>  
+     2. Formaldehyde Sensor: C303 <img src="https://github.com/user-attachments/assets/21af43b0-975f-475a-8853-31ae398cbc13" width="300"/>  
+     3. Ozone Sensor: C401 <img src="https://github.com/user-attachments/assets/c550c479-00aa-47cf-bdff-7110d2fd7afc" width="300"/>
 
    - Collect additional environmental data such as temperature and humidity.
 
@@ -312,14 +307,16 @@ https://github.com/user-attachments/assets/8bf758d6-a6f7-4aa3-8641-e2c43969a85d
 ---
 
 ## 📢 **Contributors**
+
 - Song Hyun-gon  
 - Kwak Won-jun  
 - Kim Kang-in  
-- **Cho Woo-yeon**  
+- Cho Woo-yeon  
 
 ---
 
 ## review
+
 **Cho Woo-yeon**:  
-“As the lead developer overseeing the entire workflow—from sensor data collection and processing to the chatbot interface—I gained invaluable experience in building a comprehensive solution. Throughout this project, I tackled various challenges, including filtering out noisy data, integrating advanced AI models, and ensuring clear user communication. I’m particularly proud that our platform not only monitors air quality but also offers actionable recommendations for creating healthier indoor environments. This has been a transformative endeavor, and I’m excited to continue exploring data-driven solutions that positively impact everyday life.”
+“As someone deeply involved in orchestrating the end-to-end workflow—from sensor data collection and processing to the final chatbot interface—I gained invaluable insights into comprehensive solution development. This project let me tackle complex challenges such as filtering noisy data, integrating advanced AI models, and ensuring user-friendly communication. I’m especially proud that our platform can monitor air quality while also suggesting practical measures for improving indoor environments. Overall, it’s been a transformative experience, and I’m eager to continue innovating in the sphere of smart, data-driven solutions.”
 ```
