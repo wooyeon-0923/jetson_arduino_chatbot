@@ -1,4 +1,3 @@
-```markdown
 # jetson_arduino_chatbot
 
 # 💨 Air Quality Measurement and Chatbot Project
@@ -319,4 +318,3 @@ demo.launch(share=True, debug=True)
 
 **Cho Woo-yeon**:  
 “As someone deeply involved in orchestrating the end-to-end workflow—from sensor data collection and processing to the final chatbot interface—I gained invaluable insights into comprehensive solution development. This project let me tackle complex challenges such as filtering noisy data, integrating advanced AI models, and ensuring user-friendly communication. I’m especially proud that our platform can monitor air quality while also suggesting practical measures for improving indoor environments. Overall, it’s been a transformative experience, and I’m eager to continue innovating in the sphere of smart, data-driven solutions.”
-```
