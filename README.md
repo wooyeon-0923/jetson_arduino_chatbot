@@ -1,89 +1,90 @@
 # jetson_arduino_chatbot
 
-# 💨 공기질 측정 및 챗봇 프로젝트
+## 💨 Air Quality Monitoring & Chatbot Project
 
-## 📖 프로젝트 개요
-이 프로젝트는 **Jetson Nano**와 **PM10 API**를 활용하여 실시간으로 미세먼지 농도를 측정하고, 챗봇 인터페이스를 통해 사용자가 공기질 상태를 쉽게 확인할 수 있도록 합니다.  
-Gradio UI와 OpenAI GPT-4를 사용하여 데이터 기반 조언을 제공합니다.
-
----
-
-## 🎯 주요 기능
-1. **센서 데이터와 API 데이터 비교**:
-   - Jetson Nano의 Dust Sensor와 PM10 API 데이터를 비교하여 환기 또는 공기청정기 사용 권장.
-2. **Gradio UI 기반 챗봇**:
-   - 사용자의 질문에 대해 실시간으로 데이터를 분석하고 적절한 답변 제공.
-3. **OpenAI GPT-4와 연동**:
-   - OpenAI GPT-4 API를 활용하여 복잡한 질문에도 답변 가능.
+### **Project Overview**
+This project leverages **Jetson Nano** and a **PM10 API** to measure fine dust concentrations in real time, allowing users to easily check indoor air quality through a chatbot interface.  
+We utilize **Gradio UI** and **OpenAI GPT-4** to provide data-based recommendations and insights.
 
 ---
 
-## ⚙️ 시스템 구성
+## 🎯 Key Features
+1. **Comparing Sensor Data and API Data**  
+   - Compare Dust Sensor readings from Jetson Nano with PM10 API data to recommend ventilation or air purifier use.
+2. **Gradio UI-Based Chatbot**  
+   - Analyze data in real time and provide appropriate answers to user queries.
+3. **Integration with OpenAI GPT-4**  
+   - Leverage OpenAI GPT-4 API to handle more complex questions and provide thorough responses.
 
-### 🖥️ 하드웨어 구성
+---
+
+## ⚙️ System Architecture
+
+### 🖥️ Hardware Components
 - **Grove Dust Sensor**
 - **CM1106 CO2 Sensor**
 - **Jetson Nano**
 - **Arduino**
 
-### 🛠️ 소프트웨어 구성
-- **Python**
-  - 데이터 처리 및 머신러닝 모델 구축.
-- **Arduino**
-  - 센서 데이터 수집 및 시리얼 통신.
-- **OpenAI API**
-  - Function Calling 기반의 챗봇 구현.
+### 🛠️ Software Components
+- **Python**  
+  - Data processing and machine learning model development.
+- **Arduino**  
+  - Sensor data collection and serial communication.
+- **OpenAI API**  
+  - Function Calling-based chatbot implementation.
 
 ---
 
-## 🛠️ 프로젝트 구성
-### 1. 사용된 기술
-- **Jetson Nano**: 미세먼지 센서 데이터 처리.
-- **Dust Sensor**: 실내 미세먼지 농도를 µg/m³ 단위로 측정.
-- **PM10 API**: 외부 API를 통해 실시간 PM10 데이터를 가져옴.
-- **Python 라이브러리**:
+## 🛠️ Project Structure
+
+### 1. Technologies Used
+- **Jetson Nano**: Processes fine dust sensor data.
+- **Dust Sensor**: Measures indoor fine dust concentrations in µg/m³.
+- **PM10 API**: Obtains real-time PM10 data from an external API.
+- **Python Libraries**:
   - `gradio`, `pandas`, `openai`, `urllib`.
 
-### 2. 설치 요구사항
-- Python 3.8 이상
-- 인터넷 연결 (PM10 API 및 GPT-4 API 호출을 위해 필요)
+### 2. Requirements
+- Python 3.8+
+- Internet connection (Required for PM10 API and GPT-4 API calls)
 
 ---
 
-## 💾 설치 및 실행 방법
+## 💾 Installation & Execution
 
-1. **Python 환경 설정**:
-   아래 명령어로 필요한 라이브러리를 설치합니다.
+1. **Set Up Python Environment**  
+   Install the required libraries using the following command:
    ```bash
    pip install gradio pandas openai
    ```
 
-2. **OpenAI API 키 설정**:
-   `OPENAI_API_KEY` 환경 변수를 설정하거나 코드 내에서 직접 입력합니다.
+2. **Configure OpenAI API Key**  
+   Set the `OPENAI_API_KEY` as an environment variable or directly in the code:
    ```python
    os.environ['OPENAI_API_KEY'] = 'YOUR_OPENAI_API_KEY'
    ```
 
-3. **Dust Sensor 데이터 준비**:
-   Jetson Nano에서 수집한 미세먼지 데이터는 CSV 형식으로 저장해야 합니다. 예:
+3. **Prepare Dust Sensor Data**  
+   Make sure the fine dust data collected by the Jetson Nano is stored in CSV format. For example:
    ```csv
    Timestamp,Dust Concentration (ug/m3)
    2024-12-01 10:00:00,35.2
    2024-12-01 11:00:00,40.5
    ```
 
-4. **코드 실행**:
-   아래 명령어로 스크립트를 실행합니다.
+4. **Run the Code**  
+   Execute the script using:
    ```bash
    python app.py
    ```
 
 ---
 
-## 💻 주요 코드 설명
+## 💻 Main Code Explanation
 
-### 1. PM10 API 데이터 호출
-PM10 API에서 데이터를 가져와 DataFrame으로 변환:
+### 1. PM10 API Data Retrieval
+Fetch PM10 data via API and convert it into a DataFrame:
 ```python
 url = 'https://apihub.kma.go.kr/api/typ01/url/kma_pm10.php?tm1=202412112020&tm2=202412122020&authKey=8diTRQm4TEKYk0UJuOxCsg'
 with urlopen(url) as f:
@@ -103,15 +104,15 @@ df.drop(['STN', 'FLAG', ' ', 'MQC'], axis=1, inplace=True)
 last_API_value = float(df['PM10'].iloc[-1])
 ```
 
-### 2. Jetson Nano 센서 데이터 읽기
-CSV 파일에서 Dust Sensor의 최신 데이터를 읽어옴:
+### 2. Reading Jetson Nano Sensor Data
+Retrieve the latest Dust Sensor reading from a CSV file:
 ```python
 df_dust = pd.read_csv('dust_sensor_data.csv')
 last_sensor_value = float(df_dust['Dust Concentration (ug/m3)'].iloc[-1])
 ```
 
-### 3. OpenAI API와 Gradio UI 연동
-Gradio UI를 통해 사용자가 질문을 입력하고, OpenAI API를 호출해 답변을 생성:
+### 3. OpenAI API & Gradio UI Integration
+A Gradio UI allows users to input questions, and the OpenAI API is called to generate responses:
 ```python
 with gr.Blocks() as demo:
     chatbot = gr.Chatbot(label="Chat Window")
@@ -121,8 +122,8 @@ with gr.Blocks() as demo:
 demo.launch(share=True, debug=True)
 ```
 
-### 4. 전체 코드
-아래는 전체 Python 코드입니다:
+### 4. Complete Code
+Below is the entire Python script:
 
 ```python
 import gradio as gr
@@ -222,30 +223,28 @@ with gr.Blocks() as demo:
 
 demo.launch(share=True, debug=True)
 ```
+
 ---
-## 💻 실습 결과
+## 💻 Demonstration Result
 
 https://github.com/user-attachments/assets/8bf758d6-a6f7-4aa3-8641-e2c43969a85d
 
+---
+
+## 📈 Expected Benefits
+1. **Real-Time Sensor Monitoring**  
+   - Track real-time fine dust and CO2 concentrations.
+2. **Future Concentration Prediction**  
+   - Use machine learning models to predict future dust concentration changes.
+3. **User-Friendly Interface**  
+   - Provide air quality status and predictions through a conversational chatbot.
 
 ---
 
-## 📈 기대 효과
-1. **실시간 센서 모니터링**:
-   - 미세먼지 및 CO2 농도 데이터를 실시간으로 확인.
-2. **미래 농도 예측**:
-   - 머신러닝 모델을 활용한 향후 농도 변화 예측.
-3. **사용자 친화적 인터페이스**:
-   - 챗봇을 통해 공기질 상태 및 예측 결과를 대화형으로 제공.
-
----
-
-## 🛠️ 향후 개선 방향
-1. **더 많은 센서 추가**:
-   - 온도, 습도 등 환경 데이터를 추가 수집.
-2. **STT/TTS 통합**:
-   - 음성으로 챗봇과 상호작용.
-3. **IoT 플랫폼 연동**:
-   - 클라우드 기반 데이터 저장 및 원격 모니터링.
-
----
+## 🛠️ Future Improvements
+1. **Additional Sensors**  
+   - Collect more environmental data such as temperature and humidity.
+2. **STT/TTS Integration**  
+   - Enable voice-based interactions with the chatbot.
+3. **IoT Platform Integration**  
+   - Store data in the cloud and support remote monitoring.
